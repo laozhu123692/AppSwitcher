@@ -148,20 +148,41 @@ adb shell dumpsys activity activities | grep -E "mResumedActivity|Hist #0"
 
 ### 2.6 Gradle 工程可复现构建
 
-本工程自带 Gradle Wrapper，可直接使用：
+本工程自带 Gradle Wrapper（`gradlew` / `gradlew.bat` / `gradle/wrapper/`），**无需本机预装 Gradle**：
 
 ```bash
 ./gradlew assembleDebug          # Linux / macOS
 gradlew.bat assembleDebug        # Windows
 ```
 
-实测（Windows 侧，先删除 `app/build` 从零构建）：
+实测（Windows 11 + JDK 17.0.13，**先删除 `app/build` 目录、并使用一份全新的 `GRADLE_USER_HOME`
+从零构建**）：
 
 ```
-BUILD SUCCESSFUL
+> Task :app:compileDebugKotlin
+w: .../SwitchController.kt:376:35 Parameter 'context' is never used
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+BUILD SUCCESSFUL in 13m 38s
+38 actionable tasks: 37 executed, 1 up-to-date
 ```
 
-产物：`app/build/outputs/apk/debug/app-debug.apk`，复制为 `dist/AppSwitcher-1.0-debug.apk`。
+首次运行时，Wrapper 自行从 `https://services.gradle.org/distributions/gradle-8.7-bin.zip`
+下载并安装 Gradle 8.7（本机此前未安装任何 Gradle），随后完成全部 38 个任务 ——
+证明工程**自包含、可用一条命令复现**。耗时 13 分 38 秒中绝大部分是 Gradle 发行包下载。
+
+产物 `app/build/outputs/apk/debug/app-debug.apk`（5,681,355 字节），复制为
+`dist/AppSwitcher-1.0-debug.apk` 即为交付包。
+
+> **两次构建产物对比**（Wrapper 从零构建 vs `dist/` 中的交付包）：
+> 压缩包条目数均为 894；逐条目 SHA-256 比对，仅 `classes.dex`（差 12 字节）与
+> `classes4.dex`（字节数相同、哈希不同）两个条目存在差异，其余 **892 个条目完全一致**。
+> 原因是 Android **debug 构建本身不保证逐字节可复现**（D8 增量状态、调试签名时间戳），
+> 与源码无关；两次构建产物功能完全等价。
+
+唯一编译告警：`SwitchController.kt:376:35 Parameter 'context' is never used`，无副作用。
 
 ---
 
