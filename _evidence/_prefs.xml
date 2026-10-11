@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="package_a">com.lerist.fakelocation</string>
+    <string name="package_b">com.vphonegaga.titan</string>
+    <int name="interval_ms" value="2000" />
+    <int name="stop_mode" value="0" />
+    <int name="stop_rounds" value="100" />
+    <int name="stop_minutes" value="10" />
+</map>

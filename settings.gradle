@@ -1,0 +1,21 @@
+// 双App轮换切换 —— Gradle 根设置
+// 说明：本机 dl.google.com 不可达，因此统一使用阿里云镜像仓库（google / central / gradle-plugin）。
+// 如果你在能直连 Google 的网络环境下构建，可把下面的 maven 块换回 google() / mavenCentral()。
+pluginManagement {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+    }
+}
+
+rootProject.name = "AppSwitcher"
+include ':app'

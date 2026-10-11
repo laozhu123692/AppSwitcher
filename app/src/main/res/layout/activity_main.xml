@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_bg"
+    android:fillViewport="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:descendantFocusability="beforeDescendants">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvIntro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/main_intro"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <!-- ================= 目标应用 ================= -->
+        <TextView
+            style="@style/SectionTitle"
+            android:text="@string/section_apps" />
+
+        <LinearLayout style="@style/FormRow">
+
+            <TextView
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_app_a"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvValueA"
+                style="@style/FormLabel" />
+
+            <Button
+                android:id="@+id/btnPickA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:text="@string/action_pick"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/FormRow">
+
+            <TextView
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_app_b"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvValueB"
+                style="@style/FormLabel" />
+
+            <Button
+                android:id="@+id/btnPickB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:text="@string/action_pick"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- ================= 停留时长 ================= -->
+        <TextView
+            style="@style/SectionTitle"
+            android:text="@string/section_interval" />
+
+        <LinearLayout style="@style/FormRow">
+
+            <EditText
+                android:id="@+id/etInterval"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="@string/unit_ms"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/interval_unit"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/preset_hint"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnPreset05"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:text="@string/preset_05"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btnPreset1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:text="@string/preset_1"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btnPreset2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:text="@string/preset_2"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btnPreset3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:text="@string/preset_3"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btnPreset5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:text="@string/preset_5"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- ================= 自动停止 ================= -->
+        <TextView
+            style="@style/SectionTitle"
+            android:text="@string/section_stop" />
+
+        <RadioGroup
+            android:id="@+id/rgStopMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rbStopNone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/stop_none"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rbStopRounds"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/stop_rounds"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/rbStopDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/stop_duration"
+                android:textSize="14sp" />
+        </RadioGroup>
+
+        <LinearLayout style="@style/FormRow">
+
+            <TextView
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_rounds"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etStopRounds"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="@string/unit_round"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/FormRow">
+
+            <TextView
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:text="@string/label_duration"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etStopMinutes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="@string/unit_minute"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rounds_hint"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp" />
+
+        <!-- ================= 悬浮面板 ================= -->
+        <TextView
+            style="@style/SectionTitle"
+            android:text="@string/section_panel" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/panel_tip"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <LinearLayout style="@style/FormRow">
+
+            <TextView
+                android:id="@+id/tvPanelState"
+                style="@style/FormLabel" />
+
+            <Button
+                android:id="@+id/btnTogglePanel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:text="@string/btn_show_panel"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- ================= 权限自检 ================= -->
+        <TextView
+            style="@style/SectionTitle"
+            android:text="@string/section_permission" />
+
+        <LinearLayout style="@style/FormRow">
+
+            <TextView
+                style="@style/FormLabel"
+                android:text="@string/perm_overlay" />
+
+            <TextView
+                android:id="@+id/tvPermOverlay"
+                style="@style/FormValue" />
+
+            <Button
+                android:id="@+id/btnPermOverlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:text="@string/action_open_settings"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/FormRow">
+
+            <TextView
+                style="@style/FormLabel"
+                android:text="@string/perm_accessibility" />
+
+            <TextView
+                android:id="@+id/tvPermAccess"
+                style="@style/FormValue" />
+
+            <Button
+                android:id="@+id/btnPermAccess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:text="@string/action_open_settings"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/FormRow">
+
+            <TextView
+                style="@style/FormLabel"
+                android:text="@string/perm_battery" />
+
+            <TextView
+                android:id="@+id/tvPermBattery"
+                style="@style/FormValue" />
+
+            <Button
+                android:id="@+id/btnPermBattery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:text="@string/action_open_settings"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/FormRow">
+
+            <TextView
+                style="@style/FormLabel"
+                android:text="@string/perm_notification" />
+
+            <TextView
+                android:id="@+id/tvPermNotif"
+                style="@style/FormValue" />
+
+            <Button
+                android:id="@+id/btnPermNotif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:text="@string/action_open_settings"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/FormRow">
+
+            <TextView
+                style="@style/FormLabel"
+                android:text="@string/perm_coloros" />
+
+            <TextView
+                android:id="@+id/tvPermColorOs"
+                style="@style/FormValue" />
+
+            <Button
+                android:id="@+id/btnPermColorOs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="0dp"
+                android:text="@string/action_open_settings"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- ================= 开始 / 停止 ================= -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btn_start"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnStop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:text="@string/btn_stop"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="24dp"
+            android:background="#11000000"
+            android:padding="12dp"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp" />
+    </LinearLayout>
+</ScrollView>

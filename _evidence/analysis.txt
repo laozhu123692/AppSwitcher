@@ -1,0 +1,62 @@
+成功切换次数：49
+失败次数：0
+失败目标：无
+系统弹窗相关行数：2
+降级（最近任务）行数：0
+停止原因：停止轮换：已完成 25 轮，自动停止（共切换 50 次 / 25 轮）
+
+相邻成功切换时间差：n=48
+  最小 1.873s  最大 4.917s  平均 2.071s
+  满足 2.0s±0.4s 的比例：46/48
+  前 5 个时间差：1.998, 2.003, 2.001, 2.008, 2.002
+  后 5 个时间差：2.000, 1.986, 2.016, 1.999, 1.992
+
+A/B 交替：47 次相邻不同 / 48 对
+序列（前 8 个）：['com.lerist.fakelocation', 'com.vphonegaga.titan', 'com.lerist.fakelocation', 'com.vphonegaga.titan', 'com.lerist.fakelocation', 'com.vphonegaga.titan', 'com.lerist.fakelocation', 'com.vphonegaga.titan']
+序列（后 8 个）：['com.lerist.fakelocation', 'com.vphonegaga.titan', 'com.lerist.fakelocation', 'com.vphonegaga.titan', 'com.lerist.fakelocation', 'com.vphonegaga.titan', 'com.lerist.fakelocation', 'com.vphonegaga.titan']
+校验轮次分布(第几次校验成功)：[1, 2, 5]
+
+startActivity flags 取值：['270532608']
+禁止的 flag(0x8000 CLEAR_TOP / 0x80000 CLEAR_TASK) 是否出现：未出现（正确）
+
+PC 侧前台窗口变化次数：54
+  15:39:50  com.lerist.fakelocation
+  15:39:50  com.vphonegaga.titan
+  15:39:52  com.lerist.fakelocation
+  15:39:54  com.vphonegaga.titan
+  15:39:56  com.lerist.fakelocation
+  15:39:58  com.vphonegaga.titan
+  15:40:00  com.lerist.fakelocation
+  15:40:02  ?
+  15:40:02  com.vphonegaga.titan
+  15:40:04  com.lerist.fakelocation
+  15:40:06  com.vphonegaga.titan
+  15:40:08  com.lerist.fakelocation
+  15:40:09  ?
+  15:40:10  Sys2039:com.oplus.safecenter
+  15:40:15  com.lerist.fakelocation
+  15:40:15  com.vphonegaga.titan
+  15:40:18  com.lerist.fakelocation
+  15:40:20  com.vphonegaga.titan
+  15:40:22  com.lerist.fakelocation
+  15:40:24  com.vphonegaga.titan
+  15:40:26  com.lerist.fakelocation
+  15:40:28  com.vphonegaga.titan
+  15:40:29  ?
+  15:40:30  com.lerist.fakelocation
+  15:40:32  com.vphonegaga.titan
+  15:40:34  com.lerist.fakelocation
+  15:40:36  com.vphonegaga.titan
+  15:40:38  com.lerist.fakelocation
+  15:40:40  com.vphonegaga.titan
+  15:40:41  com.lerist.fakelocation
+  15:40:44  com.vphonegaga.titan
+  15:40:46  com.lerist.fakelocation
+  15:40:48  com.vphonegaga.titan
+  15:40:50  com.lerist.fakelocation
+  15:40:51  com.vphonegaga.titan
+  15:40:54  com.lerist.fakelocation
+  15:40:56  com.vphonegaga.titan
+  15:40:58  com.lerist.fakelocation
+  15:40:59  ?
+  15:41:00  com.vphonegaga.titan

@@ -1,0 +1,2 @@
+  mCurrentFocus=Window{164cbe u0 com.vphonegaga.titan/com.vphonegaga.titan.homepage.HomePageActivity}
+  mFocusedApp=ActivityRecord{4469747 u0 com.vphonegaga.titan/.homepage.HomePageActivity t35982}

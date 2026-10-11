@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">双App轮换切换</string>
+
+    <!-- 主界面 -->
+    <string name="main_intro">让任意两个已安装的 App 自动前后台轮换：A 前台停留一段时间 → B 前台停留同样时间 → 再切回 A……\n只切换前后台，不重启进程、不使用 root、不需要电脑。</string>
+
+    <string name="section_apps">目标应用</string>
+    <string name="label_app_a">App A</string>
+    <string name="label_app_b">App B</string>
+    <string name="app_not_selected">未选择（点击右侧按钮选择）</string>
+    <string name="action_pick">选择</string>
+
+    <string name="section_interval">每次停留时长</string>
+    <string name="interval_unit">毫秒（可填 200 ~ 10000）</string>
+    <string name="unit_ms">毫秒</string>
+    <string name="label_rounds">轮次</string>
+    <string name="label_duration">时长</string>
+    <string name="preset_hint">快速预设：</string>
+    <string name="preset_05">0.5 秒</string>
+    <string name="preset_1">1 秒</string>
+    <string name="preset_2">2 秒</string>
+    <string name="preset_3">3 秒</string>
+    <string name="preset_5">5 秒</string>
+
+    <string name="section_stop">自动停止</string>
+    <string name="stop_none">不限（只能手动停止）</string>
+    <string name="stop_rounds">按轮次</string>
+    <string name="stop_duration">按时长</string>
+    <string name="unit_round">轮</string>
+    <string name="unit_minute">分钟</string>
+    <string name="rounds_hint">1 轮 = A、B 各切一次，即 2 次切换</string>
+
+    <string name="section_panel">悬浮控制面板</string>
+    <string name="btn_show_panel">显示悬浮面板</string>
+    <string name="btn_hide_panel">隐藏悬浮面板</string>
+    <string name="panel_state_shown">悬浮面板：已显示</string>
+    <string name="panel_state_hidden">悬浮面板：未显示</string>
+    <string name="panel_tip">必须显示悬浮面板，App 才能从后台把目标 App 拉到前台。</string>
+
+    <string name="section_permission">权限自检</string>
+    <string name="perm_overlay">悬浮窗权限</string>
+    <string name="perm_accessibility">无障碍服务</string>
+    <string name="perm_battery">忽略电池优化</string>
+    <string name="perm_notification">通知权限</string>
+    <string name="perm_coloros">ColorOS「后台弹出界面」</string>
+    <string name="perm_coloros_value">需人工确认（见 README）</string>
+    <string name="action_open_settings">去设置</string>
+    <string name="state_ok">✓ 已开启</string>
+    <string name="state_no">✗ 未开启</string>
+
+    <string name="btn_start">开始轮换</string>
+    <string name="btn_stop">停止轮换</string>
+    <string name="status_label">当前状态：%1$s</string>
+    <string name="status_counter">已切换 %1$d 次 · %2$d 轮</string>
+
+    <!-- 运行状态 -->
+    <string name="status_idle">空闲</string>
+    <string name="status_running">运行中</string>
+    <string name="status_paused">已暂停</string>
+    <string name="status_stopped">已手动停止</string>
+    <string name="status_finished_rounds">已完成 %1$d 轮，自动停止</string>
+    <string name="status_finished_duration">已运行约 %1$d 分钟，自动停止</string>
+    <string name="status_paused_failures">已暂停（连续 3 次切换失败）</string>
+
+    <!-- 常驻通知 -->
+    <string name="notif_channel_name">轮换运行状态</string>
+    <string name="notif_channel_desc">显示轮换运行状态，并提供暂停与停止按钮</string>
+    <string name="notif_title">双App轮换切换</string>
+    <string name="notif_running">运行中 · 已切换 %1$d 次</string>
+    <string name="notif_paused">已暂停 · 已切换 %1$d 次</string>
+    <string name="notif_finished">已结束 · 共切换 %1$d 次</string>
+    <string name="notif_stopped">已停止 · 共切换 %1$d 次</string>
+    <string name="action_pause">暂停</string>
+    <string name="action_resume">继续</string>
+    <string name="action_stop">停止</string>
+    <string name="action_cancel">取消</string>
+
+    <!-- 悬浮面板 -->
+    <string name="panel_counter">已切换 %1$d 次 · %2$d 轮</string>
+    <string name="panel_btn_start">▶ 开始</string>
+    <string name="panel_btn_pause">⏸ 暂停</string>
+    <string name="panel_btn_resume">⏸ 继续</string>
+    <string name="panel_btn_stop">■ 停止</string>
+    <string name="panel_already_running">轮换已在运行中</string>
+
+    <!-- 应用选择 -->
+    <string name="pick_app_title">选择应用</string>
+    <string name="pick_app_search_hint">输入名称或包名筛选</string>
+    <string name="pick_app_empty">没有找到可启动的应用</string>
+
+    <!-- 无障碍服务说明 -->
+    <string name="accessibility_service_label">双App轮换切换</string>
+    <string name="accessibility_service_summary">记录当前前台应用，辅助判断切换是否成功</string>
+    <string name="accessibility_service_description">本服务用于：1）通过窗口状态变化记录当前前台应用的包名，以判断切换是否真的成功；2）在直接切换失败时，改用「最近任务」的方式切回上一个应用作为降级方案。本服务不采集、不保存、不上传任何个人数据，也不联网。</string>
+
+    <!-- 提示与错误 -->
+    <string name="toast_not_running">当前没有正在运行的轮换</string>
+    <string name="toast_settings_unavailable">无法打开系统设置页，请手动到系统设置里开启</string>
+
+    <string name="err_pick_apps">请先选择 App A 和 App B</string>
+    <string name="err_same_app">App A 和 App B 不能是同一个应用</string>
+    <string name="err_app_missing">选中的应用已被卸载，请重新选择</string>
+    <string name="err_interval_invalid">请输入 200 ~ 10000 之间的毫秒数</string>
+    <string name="err_overlay_permission">请先开启悬浮窗权限</string>
+    <string name="err_overlay_not_shown">请先显示悬浮控制面板</string>
+    <string name="err_overlay_add_failed">悬浮面板显示失败，请检查悬浮窗权限是否已开启</string>
+    <string name="err_accessibility_required">请先开启本应用的无障碍服务</string>
+    <string name="err_start_service">启动前台服务失败，请检查通知权限</string>
+    <string name="err_foreground_failed">前台服务启动失败，请检查通知权限</string>
+
+    <string name="hint_no_accessibility">无障碍服务未开启，无法校验切换结果</string>
+    <string name="hint_system_dialog">系统弹窗询问「想要打开 XX」，请在手机上点「30天内允许」</string>
+    <string name="fail_launch">无法拉起目标应用：%1$s</string>
+    <string name="fail_switch">切换到目标应用失败：%1$s</string>
+    <string name="fail_three_times">连续 3 次切换失败，请检查：悬浮窗权限 / 后台弹出界面权限 / 关联启动（ColorOS）/ 无障碍服务</string>
+</resources>
