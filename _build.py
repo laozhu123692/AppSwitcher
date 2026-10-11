@@ -9,15 +9,43 @@ import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-TC = os.environ.get("TC") or os.path.join(os.environ.get("TEMP", ""), "dsh-android")
+
+
+def _find_tc():
+    """工具链目录：优先 TC 环境变量，其次 %TEMP%\\dsh-android，
+    最后回退到本机已知的历史会话目录（DSH 每次会话的 TEMP 会变，工具链只在第一次下载过）。
+    """
+    cands = []
+    if os.environ.get("TC"):
+        cands.append(os.environ["TC"])
+    if os.environ.get("TEMP"):
+        cands.append(os.path.join(os.environ["TEMP"], "dsh-android"))
+    base = os.path.join(os.environ.get("LOCALAPPDATA", ""), "Temp")
+    if os.path.isdir(base):
+        try:
+            for n in os.listdir(base):
+                cands.append(os.path.join(base, n, "dsh-android"))
+        except OSError:
+            pass
+    for c in cands:
+        if os.path.exists(os.path.join(c, "jdk17", "bin", "javac.exe")):
+            return c
+    return cands[0] if cands else ""
+
+
+TC = _find_tc()
+# 工具链目录可能来自「上一个会话的 TEMP」，当前会话对它没有写权限
+# （Gradle 要往 GRADLE_USER_HOME 解压 native-platform.dll，会报 Could not initialize native services）。
+# 因此 JAVA_HOME / ANDROID_HOME 允许只读，但 GRADLE_USER_HOME / ANDROID_USER_HOME 一律指向当前可写目录。
+WRITABLE = os.path.join(os.environ.get("TEMP") or TC, "dsh-android")
 
 env = dict(os.environ)
 env["JAVA_HOME"] = os.path.join(TC, "jdk17")
 env["ANDROID_HOME"] = os.path.join(TC, "android-sdk")
 env["ANDROID_SDK_ROOT"] = os.path.join(TC, "android-sdk")
-env["GRADLE_USER_HOME"] = os.path.join(TC, "gradle-home")
+env["GRADLE_USER_HOME"] = os.path.join(WRITABLE, "gradle-home")
 # 沙箱下 C:\Users\<user>\.android 不可写，AGP 会打不出 metrics 告警；指到可写目录
-env["ANDROID_USER_HOME"] = os.path.join(TC, "android-user")
+env["ANDROID_USER_HOME"] = os.path.join(WRITABLE, "android-user")
 env["PATH"] = os.pathsep.join([
     os.path.join(TC, "jdk17", "bin"),
     os.path.join(TC, "android-sdk", "platform-tools"),
